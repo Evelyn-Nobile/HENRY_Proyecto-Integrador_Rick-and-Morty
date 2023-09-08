@@ -12,7 +12,7 @@ const SearchBar = ({onSearch}) => {
    return (
       <div>
         <input type="search" value={id} onChange={handleChange}/>
-        <button onClick={() => {onSearch(id); setId('')}}>Agregar</button> {/*primero me trae la info del personaje y despues me borra el input*/}
+        <button onClick={() => {onSearch(id); setId('')}}>ADD</button> 
       </div>
    )
 };
