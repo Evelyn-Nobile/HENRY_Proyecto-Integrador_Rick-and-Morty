@@ -1,9 +1,5 @@
 import "./App.css";
-import {
-  Routes,
-  Route,
-  useLocation,
-  useNavigate,} from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "./components/Form/Form";
@@ -14,7 +10,7 @@ import Detail from "./components/Detail/Detail";
 import Error from "./components/Error/Error";
 
 const email = "nobileevelyn1@gmail.com";
-const password = "valentino5";
+const password = "123asd";
 
 function App() {
   const location = useLocation();
@@ -36,7 +32,7 @@ function App() {
 
   const logout = () => {
     setAccess(false);
-    navigate("/form")
+    navigate("/form");
   };
 
   const onSearch = (id) => {
@@ -44,10 +40,20 @@ function App() {
       .then((response) => response.data)
       .then((data) => {
         if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          alert("Ops! The ID doesn's exist");
-        }
+          // Verificar si el personaje ya existe en la lista por su ID
+          const characterExists = characters.some((char) => char.id === data.id);
+          
+          if (!characterExists) {
+            // Si no existe, agrégalo a la lista
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            alert("The character already exists");
+          }
+        } 
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Ops! The character does not exist");
       });
   };
 
@@ -58,12 +64,22 @@ function App() {
     setCharacters(charactersFiltered);
   };
 
- 
+  const addRandomCharacter = () => {
+    const randomId = Math.floor(Math.random() * 672) + 1; // ID aleatorio válido
 
+    // Llama a la función onSearch con el ID aleatorio
+    onSearch(randomId);
+  };
   return (
     <div className="App">
-      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
-      
+      {location.pathname !== "/" && (
+        <Nav
+          onSearch={onSearch}
+          logout={logout}
+          addRandomCharacter={addRandomCharacter}
+        />
+      )}
+
       <Routes>
         <Route path="/" element={<Form login={login} />}></Route>
         <Route
@@ -71,7 +87,7 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         ></Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/detail/:id" element={<Detail />}></Route>       
+        <Route path="/detail/:id" element={<Detail />}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
     </div>
