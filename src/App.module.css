@@ -13,6 +13,7 @@ body {
 
 .neontitlecontainer {
   display: flex;
+
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -48,7 +49,6 @@ body {
   .neontitlecontainer {
     margin-top: 5rem;
     margin-left: auto;
-  
   }
   .neontitle {
     font-size: 40px;

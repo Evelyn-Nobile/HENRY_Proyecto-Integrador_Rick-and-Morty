@@ -8,17 +8,17 @@ import Nav from "./components/Nav/Nav";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Error from "./components/Error/Error";
-import Favorites from "./components/Favorites/Favorites"
+import Favorites from "./components/Favorites/Favorites";
 
-const email = "nobileevelyn1@gmail.com";
-const password = "123asd";
+const email = "evelyn@gmail.com";
+const password = "35461532e";
 
 function App() {
-   let [neonTitleVisible, setNeonTitleVisible] = useState(false);
-  
-   const activateNeonTitle = () => {
+  let [neonTitleVisible, setNeonTitleVisible] = useState(false);
+
+  const activateNeonTitle = () => {
     setNeonTitleVisible(true);
-   };
+  };
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -39,7 +39,6 @@ function App() {
 
   const logout = () => {
     setAccess(false);
-    setNeonTitleVisible(false);
     navigate("/form");
   };
 
@@ -81,11 +80,8 @@ function App() {
     onSearch(randomId);
   };
 
-  
-
   return (
     <div className={style.app}>
-    
       {location.pathname !== "/" && (
         <Nav
           onSearch={onSearch}
@@ -93,14 +89,18 @@ function App() {
           addRandomCharacter={addRandomCharacter}
         />
       )}
-  {neonTitleVisible && <div className={style.neontitlecontainer}><h1 className={style.neontitle}>Rick and Morty</h1></div>}
-       
-       
-       <Routes>
-        <Route path="/" element={ <Form login={login} 
-             onNeonTitleActivate={activateNeonTitle}
-             />
-    }
+      {location.pathname === "/home" && neonTitleVisible && (
+        <div className={style.neontitlecontainer}>
+          <h1 className={style.neontitle}>Rick and Morty</h1>
+        </div>
+      )}
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Form login={login} onNeonTitleActivate={activateNeonTitle} />
+          }
         ></Route>
 
         <Route
