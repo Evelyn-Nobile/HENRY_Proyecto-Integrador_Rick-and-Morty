@@ -31,7 +31,7 @@ const Form = ({ login, onNeonTitleActivate }) => {
   return (
     <div className={style.container}>
       <img
-        src="/src/assets/com-gif-maker-1--unscreen.gif"
+        src="/public/com-gif-maker-1--unscreen.gif"
         className={style.formheader}
       ></img>
       <form onSubmit={handleSubmit} className={style.form}>
