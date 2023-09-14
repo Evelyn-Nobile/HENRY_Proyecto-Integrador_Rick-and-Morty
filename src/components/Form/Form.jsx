@@ -1,45 +1,86 @@
-import { useState } from "react"
-import validation from "./Validation"
+import { useState } from "react";
+import validation from "./Validation";
+import style from "./Form.module.css";
 
-const Form = ({login}) => {
-let [userData, setUserData] = useState({
-    email:'',
-     password: ''
-})
+const Form = ({ login, onNeonTitleActivate }) => {
+  let [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
 
-let [errors, setErrors] = useState({})
+  let [errors, setErrors] = useState({});
 
-const handleOnChange = (event) =>{
-setUserData ({
-    ...userData,
-    [event.target.name]: event.target.value
-})
-setErrors(validation({
-    ...userData,
-    [event.target.name]: event.target.value
-}))
-}
+  const handleOnChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value,
+    });
+    setErrors(
+      validation({
+        ...userData,
+        [event.target.name]: event.target.value,
+      })
+    );
+  };
 
-const handleSubmit = (event) =>{
-event.preventDefault();
-login(userData)
-}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    login(userData);
+  };
 
-return (
-    <form onSubmit={handleSubmit}>
-        <h2>Aca va a ir un titulo cuando se me ocurra algo</h2>
-        <label htmlFor="email"> Enter Your Top-Secret E-mail: </label>
-        <input name= 'email' type="email" placeholder="E-mail" value = {userData.email} onChange={handleOnChange} />
-        {errors.email && <p>{errors.email}</p>}
+  return (
+    <div className={style.container}>
+      <img
+        src="/src/assets/com-gif-maker-1--unscreen.gif"
+        className={style.formheader}
+      ></img>
+      <form onSubmit={handleSubmit} className={style.form}>
+        <div className={style.email}>
+          <label htmlFor="email"> Enter Your Top-Secret E-mail: </label>
+          <input
+            name="email"
+            type="email"
+            placeholder="E-MAIL"
+            value={userData.email}
+            onChange={handleOnChange}
+            autoComplete="off"
+          />
+          {errors.email && <p className={style.inputerror}>{errors.email}</p>}
+        </div>
 
-        <label htmlFor="password">Enter Your Top-Secret Password:  </label>
-        <input name= 'password' type="password" placeholder="Password" value = {userData.password} onChange={handleOnChange} />
-        {errors.password && <p>{errors.password}</p>}
+        <div className={style.password}>
+          <label htmlFor="password">Enter Your Top-Secret Password: </label>
+          <input
+            name="password"
+            type="password"
+            placeholder="PASSWORD"
+            value={userData.password}
+            onChange={handleOnChange}
+            autoComplete="off"
+          />
+          {errors.password && (
+            <p className={style.inputerror}>{errors.password}</p>
+          )}
+        </div>
 
-        <button disabled = {!userData.email || !userData.password || errors.email || errors.password}>START</button>
-    </form>
-)
-}
-
+        <button
+          onClick={() => {
+            login(userData);
+            onNeonTitleActivate();
+          }}
+          className={style.btn}
+          disabled={
+            !userData.email ||
+            !userData.password ||
+            errors.email ||
+            errors.password
+          }
+        >
+          START
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default Form;

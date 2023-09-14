@@ -1,7 +1,6 @@
 const About = () => {
   return (
     <div>
-      <h1>Rick and Morty App</h1>
       <h2>Created by Evelyn Nobile</h2>
       <a
         href="https://www.linkedin.com/in/evelyn-nobile-394405227/"

@@ -15,6 +15,7 @@ const Cards = ({ characters, onClose }) => {
             origin={origin.name}
             image={image}
             onClose={onClose}
+            showCloseButton={true}
           />
         )
       )}

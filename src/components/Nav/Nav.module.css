@@ -1,0 +1,90 @@
+:root {
+  --green: #66ff00;
+  --yellow: #ffff00;
+  --blue: #05b8d8;
+}
+/**desktop**/
+@media screen and (min-width: 769px) {
+  .navcontainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+  .icon {
+    display: none;
+  }
+}
+.button {
+  position: relative;
+  color: #f5f5f5;
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #111;
+  overflow: hidden;
+  border: none; /* Eliminar el borde predeterminado del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar el ratón sobre el botón */
+}
+
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  border: 3px solid transparent; /* Borde transparente */
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+}
+
+.button::before {
+  top: -6px;
+  left: -6px;
+  border-image: linear-gradient(
+    115deg,
+    var(--green),
+    var(--blue),
+    var(--yellow),
+    var(--blue),
+    var(--green)
+  );
+  border-image-slice: 1;
+}
+
+.button::after {
+  bottom: -6px;
+  right: -6px;
+  border-image: linear-gradient(
+    115deg,
+    var(--green),
+    var(--blue),
+    var(--yellow),
+    var(--blue),
+    var(--green)
+  );
+  border-image-slice: 1;
+}
+
+.button:hover::before,
+.button:hover::after {
+  width: 100%; /* Hacer que los bordes brillantes sean visibles al hacer hover */
+}
+
+/**tablet**/
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .button {
+    display: none;
+  }
+
+}
+
+/**mobile**/
+
+@media screen and (max-width: 320px) {
+  .button{
+    display: none;
+  }
+}

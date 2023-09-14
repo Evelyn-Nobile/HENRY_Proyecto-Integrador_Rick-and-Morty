@@ -1,27 +1,40 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
+import style from "./Nav.module.css";
 
-
-const Nav = ({ onSearch, logout,addRandomCharacter }) => {
- 
-
-  
-  
+const Nav = ({ onSearch, logout, addRandomCharacter }) => {
   return (
-    <nav>
-      <SearchBar onSearch={onSearch} />
-     <button onClick={addRandomCharacter} >RANDOM</button>
+    <div>
+      <nav className={style.navcontainer}>
+        <SearchBar onSearch={onSearch} />
 
-      <button>
-        <Link to="home">HOME</Link>
-      </button>
+        <button className={style.button} onClick={addRandomCharacter}>
+          RANDOM
+        </button>
 
-      <button>
-        <Link to="About">ABOUT</Link>
-      </button>
+        <Link to="/favorites">
+          <button className={style.button}>
+            <span>FAVORITES</span>
+          </button>
+        </Link>
 
-    <button onClick={logout} >LOG OUT</button>
-    </nav>
+        <Link to="/home">
+          <button className={style.button}>
+            <span>HOME</span>
+          </button>
+        </Link>
+
+        <Link to="/about">
+          <button className={style.button}>
+            <span>ABOUT</span>
+          </button>
+        </Link>
+
+        <button onClick={logout} className={style.button}>
+          <span>LOG OUT</span>
+        </button>
+      </nav>
+    </div>
   );
 };
 
