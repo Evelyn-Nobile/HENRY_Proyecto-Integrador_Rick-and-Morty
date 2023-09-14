@@ -8,7 +8,7 @@
   --blue: #05b8d8;
 }
 body {
-background-color: black;
+  background-color: black;
 }
 
 .neontitlecontainer {
@@ -30,4 +30,27 @@ background-color: black;
   -webkit-text-fill-color: var(--blue);
   -webkit-text-stroke-color: var(--green);
   -webkit-text-stroke-width: 0.1px;
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .neontitle {
+    font-size: 50px;
+  }
+  .neontitlecontainer {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+
+/**mobile**/
+
+@media screen and (max-width: 320px) {
+  .neontitlecontainer {
+    margin-top: 5rem;
+    margin-left: auto;
+  
+  }
+  .neontitle {
+    font-size: 40px;
+  }
 }

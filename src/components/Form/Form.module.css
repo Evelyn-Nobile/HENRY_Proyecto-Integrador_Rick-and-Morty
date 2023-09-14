@@ -153,9 +153,7 @@ input::placeholder {
 }
 /**tablet**/
 @media screen and (min-width: 321px) and (max-width: 768px) {
-  .titulo {
-    font-size: 1.5rem;
-  }
+  
   .email,
   .password {
     font-size: 0.7rem;
@@ -191,9 +189,7 @@ input::placeholder {
 /**mobile**/
 
 @media screen and (max-width: 320px) {
-  .titulo {
-    font-size: 1.5rem;
-  }
+  
   .email,
   .password {
     font-size: 0.6rem;
@@ -223,6 +219,5 @@ input::placeholder {
   }
   .inputerror {
     font-size: 11px;
-    width: 250px;
   }
 }
