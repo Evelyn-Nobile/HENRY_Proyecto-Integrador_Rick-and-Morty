@@ -2,39 +2,43 @@ import Card from "../Card/Card";
 import { connect, useDispatch } from "react-redux";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useState } from "react";
-
+import style from "./Favorites.module.css";
 const Favorites = ({ myFavorites }) => {
   const dispatch = useDispatch();
   let [aux, setAux] = useState(false);
-  
 
   const handleOrder = (event) => {
     dispatch(orderCards(event.target.value));
-    setAux(true)
+    setAux(true);
   };
 
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
   };
 
- 
   return (
     <div>
-      <select onChange={handleOrder}>
-        <option value="A">Ascendente</option>
-        <option value="D">Descendente</option>
-      </select>
+      <div className={style.filtersContainer}>
+        <p className={style.filterText} >FILTERS:</p>
 
-      <select onChange={handleFilter}>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">unknown</option>
-        <option value="allCharacters">All</option>
-      </select>
+        <select onChange={handleOrder}>
+          <option className={style.optionG}  value="A">Ascending</option>
+          <option className={style.optionY}value="D">Descending</option>
+        </select>
+
+        <select onChange={handleFilter}>
+          <option className={style.optionG} value="Male">Male</option>
+          <option className={style.optionY} value="Female">Female</option>
+          <option className={style.optionB} value="Genderless">Genderless</option>
+          <option className={style.optionG} value="unknown">unknown</option>
+          <option className={style.optionB}value="allCharacters">All</option>
+        </select>
+      </div>
+<div className={style.favContainer} >
       {myFavorites?.map((fav) => {
         return (
           <Card
+            className={style.favCards}
             key={fav.id}
             id={fav.id}
             name={fav.name}
@@ -46,6 +50,7 @@ const Favorites = ({ myFavorites }) => {
           />
         );
       })}
+      </div>
     </div>
   );
 };

@@ -6,11 +6,11 @@ const Nav = ({ onSearch, logout, addRandomCharacter }) => {
   return (
     <div>
       <nav className={style.navcontainer}>
-        <SearchBar onSearch={onSearch} />
+      {location.pathname !== "/favorites"  && (<SearchBar onSearch={onSearch}/>)}
 
-        <button className={style.button} onClick={addRandomCharacter}>
+      {location.pathname !== "/favorites"  && (  <button className={style.button} onClick={addRandomCharacter}>
           RANDOM
-        </button>
+        </button>)}
 
         <Link to="/favorites">
           <button className={style.button}>

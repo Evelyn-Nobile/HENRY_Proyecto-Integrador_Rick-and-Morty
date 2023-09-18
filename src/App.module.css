@@ -8,16 +8,19 @@
   --blue: #05b8d8;
 }
 body {
-  background-color: black;
+  background-image: url("/src/assets/Rick-_-Morty-The-Lab-_online-video-cutter.com_.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  font-family: "Poppins";
 }
 
 .neontitlecontainer {
   display: flex;
-
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50vh;
+  margin-top: 2rem;
   margin-left: 2rem;
 }
 

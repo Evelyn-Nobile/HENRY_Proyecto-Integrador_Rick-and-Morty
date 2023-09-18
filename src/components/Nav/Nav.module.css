@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
+
   }
   .icon {
     display: none;
@@ -78,13 +79,12 @@
   .button {
     display: none;
   }
-
 }
 
 /**mobile**/
 
 @media screen and (max-width: 320px) {
-  .button{
+  .button {
     display: none;
   }
 }
