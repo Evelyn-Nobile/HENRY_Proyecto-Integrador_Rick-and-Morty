@@ -10,18 +10,15 @@ const reducer = (state = initialState, { type, payload }) => {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: [...state.allCharactersFav, payload], //no le hago spread operator porque como es un solo character, necesito el objeto entero. Tengo que hacer copia del array y no un push para no pisar la info ya que siempre retorno un nuevo obj
-        allCharactersFav: [...state.allCharactersFav, payload], //son iguales, solo filtramos y ordenamos los que tenemos en favoritos
+        myFavorites: payload, //no le hago spread operator porque como es un solo character, necesito el objeto entero. Tengo que hacer copia del array y no un push para no pisar la info ya que siempre retorno un nuevo obj
+        allCharactersFav: payload, //son iguales, solo filtramos y ordenamos los que tenemos en favoritos
       };
    
       
      case REMOVE_FAV:
       return {
-        ...state,
-     allCharactersFav: state.myFavorites.filter(
-    
-          (fav) => fav.id !== Number(payload)
-       ), //nos quedamos con el personaje cuyo id sea distinto que el que me mandan por payload. Ese payload viene de la action.
+         ...state,
+          myFavorites: payload, allCharacters: payload 
      };
      case FILTER:
       return {
