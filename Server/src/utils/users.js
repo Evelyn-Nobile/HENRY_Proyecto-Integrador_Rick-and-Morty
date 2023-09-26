@@ -1,0 +1,2 @@
+//En este ejercicio construiremos un controlador que validará que el usuario que se está logeando tenga permiso.
+module.exports = [{email: 'evelyn@gmail.com', password: '35461532e'}];//Aquí solo deberas exportar un arrgelo con un solo objeto

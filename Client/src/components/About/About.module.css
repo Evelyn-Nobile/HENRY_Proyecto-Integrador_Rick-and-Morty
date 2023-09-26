@@ -1,0 +1,183 @@
+.aboutContainer {
+    background-color: #222;
+    height: 82vh;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    margin-top: 2.5rem;
+    border: 8px solid transparent; /* Establece un borde transparente inicial */
+    animation: borderGradient 1s linear infinite; /* Aplica la animación al borde */
+    box-sizing: border-box; /* Asegura que el ancho del borde se incluya en el tamaño total */
+  }
+  
+  @keyframes borderGradient {
+    0% {
+      border-image: linear-gradient(45deg, #66ff00, #ffff00, #05b8d8);
+      border-image-slice: 20; /* Define el ancho del borde */
+    }
+    100% {
+      border-image: linear-gradient(45deg, #05b8d8, #66ff00, #ffff00);
+      border-image-slice: 20; /* Define el ancho del borde */
+    }
+   
+  }
+  
+  
+
+.imageContainer img{
+height: 300px;
+width: 300px;
+
+}
+
+.textContainer{
+   height: 80%;
+   width: 55%;
+   overflow: hidden; /* ocultar el texto que se desborda */
+    position: relative;
+ 
+}
+.textContainer h2{
+    color: white;
+    display: block;     
+    font-family: monospace;
+    font-size: 1.8rem;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 25ch;
+    animation: typing 3s steps(25), blink .5s infinite step-end alternate;
+    overflow: hidden;
+    text-align: center;
+   
+}
+
+@keyframes typing {
+    from {width:0 ;}
+}
+
+@keyframes blink{
+    50% {border-color: transparent;}
+}
+
+.textContainer p{
+    margin-top: 2rem;
+    letter-spacing: 3px;
+    color: white;
+    font-family: "Inconsolata";
+    font-size: 1.2rem;
+    line-height: 2rem;
+text-align: center;
+
+}
+
+.socialContainer img{
+    height: 75px;
+   
+
+}
+
+.socialContainer{
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+
+}
+
+  /* mobile */
+  @media screen and (max-width: 768px) {    
+  
+  .aboutContainer {
+    background-color: #222;
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    border: 2px solid transparent;
+    animation: borderGradient 1s linear infinite;
+    box-sizing: border-box;
+    margin-top: 15rem;
+  }
+  
+  /* Estilos generales */
+  @keyframes borderGradient {
+    0% {
+      border-image: linear-gradient(45deg, #66ff00, #ffff00, #05b8d8);
+      border-image-slice: 1; /* Define el ancho del borde */
+    }
+    100% {
+      border-image: linear-gradient(45deg, #05b8d8, #66ff00, #ffff00);
+      border-image-slice: 1; /* Define el ancho del borde */
+    }
+  }
+
+  /* Imagen */
+  .imageContainer img {
+width:170px;
+height: 170px;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    
+  }
+  
+  /* Texto */
+  .textContainer {
+    width: 80%;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .textContainer h2 {
+    color: white;
+    font-family: monospace;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    border-right: 4px solid;
+    margin: 0 auto;
+    width: auto;
+    animation: typing 3s steps(25), blink 0.5s infinite step-end alternate;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  .textContainer p {
+    margin-top: 2rem;  
+    color: white;
+    font-family: "Inconsolata";
+    font-size: 1rem;
+    
+  }
+  
+  /* Redes sociales */
+  .socialContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .socialContainer img {
+    max-width: 40px;
+    height: auto;
+  }
+  
+}
+  
+  
+  
+  
+
+  
