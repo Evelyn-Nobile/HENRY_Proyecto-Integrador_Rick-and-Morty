@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState} from "react";
 import validation from "./Validation";
 import style from "./Form.module.css";
 
 
+
 const Form = ({ login, onNeonTitleActivate }) => {
+
+
+
+ 
   let [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -36,9 +41,11 @@ const Form = ({ login, onNeonTitleActivate }) => {
     event.preventDefault(); //Para evitar que se recargue la pagina cada vez que el usuario le da click al submit
     login(userData);
   };
-
+  
   return (
+
     <div className={style.container}>
+      
       <img
         src="/public/com-gif-maker-1--unscreen.gif"
         className={style.formheader}
@@ -78,7 +85,9 @@ const Form = ({ login, onNeonTitleActivate }) => {
         <button
           onClick={() => {
             login(userData);
-            onNeonTitleActivate();
+           
+             onNeonTitleActivate();
+            
           }}
           className={style.btn}
           disabled={ //Dejo el boton deshabilitado si no escribi nada en algun input o si hay errores
@@ -93,6 +102,8 @@ const Form = ({ login, onNeonTitleActivate }) => {
 
        
       </form>
+    
+       
     </div>
   );
 };

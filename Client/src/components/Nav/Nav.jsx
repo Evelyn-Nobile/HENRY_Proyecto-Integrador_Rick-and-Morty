@@ -12,21 +12,28 @@ const Nav = ({ onSearch, logout, addRandomCharacter }) => {
           RANDOM
         </button>)}
 
-        <Link to="/favorites">
-          <button className={style.button}>
-            <span>FAVORITES</span>
-          </button>
-        </Link>
-
         <Link to="/home">
           <button className={style.button}>
             <span>HOME</span>
           </button>
         </Link>
 
+        <Link to="/favorites">
+          <button className={style.button}>
+            <span>FAVORITES</span>
+          </button>
+        </Link>
+
+       
+        <Link to="/bonus">
+          <button className={style.button}>
+            <span>BONUS TRACK</span>
+          </button>
+        </Link>
+
         <Link to="/about">
           <button className={style.button}>
-            <span>ABOUT</span>
+            <span>ABOUT ME</span>
           </button>
         </Link>
 

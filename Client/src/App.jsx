@@ -9,7 +9,10 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Error from "./components/Error/Error";
 import Favorites from "./components/Favorites/Favorites";
+import Bonus from "./components/Bonus/Bonus";
 import heroSound from "./assets/The Lab.mp3";
+
+
 
 
 function App() {
@@ -125,7 +128,7 @@ function App() {
 
   return (
     <div className={style.app}>
-      {location.pathname !== "/" && ( //la prop pathname del obj que devuelve useLocation
+      {location.pathname !== "/"  &&( //la prop pathname del obj que devuelve useLocation
         <Nav //Lo dejo fuera de routes para que se muestre en todos lados menos en el login
           onSearch={onSearch}
           logout={logout}
@@ -154,7 +157,8 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/detail/:id" element={<Detail />}></Route>
         <Route path="*" element={<Error />}></Route>
-        <Route path="/favorites" element={<Favorites />}></Route>
+        <Route path="/favorites" element={<Favorites />}></Route>       
+        <Route path="/bonus" element={<Bonus />}></Route>
       </Routes>
     </div>
   );

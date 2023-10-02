@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import style from "./Detail.module.css"
 
 const Detail = () => {
   //Trabajo con ids porque los nombres por ejemplo se pueden repetir
   const { id } = useParams(); //Obtengo el id de la ruta:<Route path="/detail/:id" element={<Detail />}></Route> Card --> <Link to={`/detail/${id}`}  className={style.link}> . Destructuring porque useParams devuelve obj con la propiedad id
   let [character, setCharacter] = useState({});
-  
+ 
 //Creada en el M2
   // useEffect(() => {
   //   este código es el que buscará al personaje de la API cada vez que el componente se monte. Y luego, cada vez que se desmonte, borrará su información.
@@ -39,16 +41,28 @@ useEffect(() => {
 }, [id]);
 
 return (
-    <div>
+    <div className={style.card}>
       {character && ( //Me tengo que fijar que el objeto character no este vacio. Si no lo está renderiza las etiquetas. Se usan {} para el renderizado condicional. NO SE PUEDE USAR IF. Puedo usar ternario,? (condicional chaining) o &&
         //El renderizado de abajo es mas rapido que la peticion a la api por eso hay que chequear que haya algo en el estado primero
-        <div> 
-          <h2>{character.name}</h2>
-          <h3>Status: {character.status}</h3>
-          <h3>Specie: {character.species}</h3>
-          <h3>Gender: {character.gender}</h3>
-          <h3>Origin: {character.origin && character.origin.name}</h3>
+        <div > 
+
+        
+      
+<div className={style.containerName} >
+          <h2 className={style.name}>{character.name}</h2>
+          </div>
+          <div className={style.content} > 
+          <h3 className={style.status}  >Status: {character.status}</h3>
+          <h3 className={style.specie} >Specie: {character.species}</h3>
+          <h3 className={style.gender} >Gender: {character.gender}</h3>
+          <h3 className={style.origin}  >Origin: {character.origin && character.origin.name}</h3>
+          </div>
+
+          <div className={style.image}>
           <img src={character.image} alt={character.name} />
+          <Link to="/home"> <button className={style.btn}>HOME</button></Link>
+          
+          </div>
         </div>
       )}
     </div>

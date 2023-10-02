@@ -1,0 +1,129 @@
+.container {
+  margin: auto; 
+  margin-top: 5rem;
+  width:446px;
+  height:341px;
+  text-align:center;
+  background:url('src/assets/Apple_Thunderbolt_Display.png')
+}
+.container iframe {
+  width:410px;
+  height:230px;
+  top:20px;
+  position:relative;
+}
+
+
+.openingcontainer{
+  background-color: #222;
+  height: 100px;
+  width: 500px;    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;     
+  margin: auto;
+  margin-top: 5rem;
+  border: 8px solid transparent; /* Establece un borde transparente inicial */
+  animation: borderGradient 1s linear infinite; /* Aplica la animación al borde */
+  box-sizing: border-box;
+  padding: 20px;
+ 
+ 
+ 
+}
+
+@keyframes borderGradient {
+  0% {
+    border-image: linear-gradient(45deg, #66ff00, #ffff00, #05b8d8);
+    border-image-slice: 20; /* Define el ancho del borde */
+  }
+  100% {
+    border-image: linear-gradient(45deg, #05b8d8, #66ff00, #ffff00);
+    border-image-slice: 20; /* Define el ancho del borde */
+  }
+ 
+}
+
+
+.opening{ 
+  margin-top: auto;
+  color: hsla(0, 0%, 0%, .9);
+  font: normal 3rem Varela Round, sans-serif;    
+  letter-spacing: 5px;    
+  text-align: center;
+  text-transform: uppercase; 
+  animation: move linear 2000ms infinite;  
+  
+}
+
+@keyframes move {
+  0% {
+    text-shadow:
+      4px -4px 0 rgb(9, 255, 0), 
+      3px -3px 0 rgb(0, 255, 0), 
+      2px -2px 0  rgb(0, 255, 0),
+      1px -1px 0 rgb(0, 255, 0),
+      -4px 4px 0 hsla(180, 100%, 50%, 1), 
+      -3px 3px 0 hsla(180, 100%, 50%, 1), 
+      -2px 2px 0 hsla(180, 100%, 50%, 1), 
+      -1px 1px 0 hsla(180, 100%, 50%, 1)
+    ;
+  }
+  25% {    
+    text-shadow:      
+      -4px -4px 0 hsla(180, 100%, 50%, 1), 
+      -3px -3px 0 hsla(180, 100%, 50%, 1), 
+      -2px -2px 0 hsla(180, 100%, 50%, 1), 
+      -1px -1px 0 hsla(180, 100%, 50%, 1),
+      4px 4px 0 rgb(0, 255, 0), 
+      3px 3px 0 rgb(0, 255, 0), 
+      2px 2px 0 rgb(0, 255, 0) , 
+      1px 1px 0 rgb(0, 255, 0)
+    ;
+  }
+  50% {
+    text-shadow:
+      -4px 4px 0 rgb(217, 255, 0), 
+      -3px 3px 0 rgb(217, 255, 0), 
+      -2px 2px 0  rgb(217, 255, 0) ,
+      -1px 1px 0 rgb(217, 255, 0),
+      4px -4px 0 hsla(180, 100%, 50%, 1), 
+      3px -3px 0 hsla(180, 100%, 50%, 1), 
+      2px -2px 0 hsla(180, 100%, 50%, 1), 
+      1px -1px 0 hsla(180, 100%, 50%, 1)
+    ;
+  }
+  75% {
+    text-shadow:
+      4px 4px 0 hsla(180, 100%, 50%, 1), 
+      3px 3px 0 hsla(180, 100%, 50%, 1), 
+      2px 2px 0 hsla(180, 100%, 50%, 1), 
+      1px 1px 0 hsla(180, 100%, 50%, 1),
+      -4px -4px 0 rgb(0, 255, 0), 
+      -3px -3px 0 rgb(0, 255, 0), 
+      -2px -2px 0 rgb(0, 255, 0) , 
+      -1px -1px 0  rgb(0, 255, 0)     
+    ;
+  }
+  100% {
+    text-shadow:
+      4px -4px 0 rgb(217, 255, 0), 
+      3px -3px 0 rgb(217, 255, 0), 
+      2px -2px 0 rgb(217, 255, 0), 
+      1px -1px 0 rgb(217, 255, 0),
+      -4px 4px 0 hsla(180, 100%, 50%, 1), 
+      -3px 3px 0 hsla(180, 100%, 50%, 1), 
+      -2px 2px 0 hsla(180, 100%, 50%, 1), 
+      -1px 1px 0 hsla(180, 100%, 50%, 1)
+    ;
+  }  
+}
+
+
+
+
+
+
+
+
