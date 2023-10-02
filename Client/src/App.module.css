@@ -7,11 +7,15 @@
   --yellow: #ffff00;
   --blue: #05b8d8;
 }
+html{
+  cursor: url("/src/assets/519-5195253_kingsglass-green-portal-title-kingsglass-green-rick-and_preview_rev_1-removebg-preview.png"), auto; 
+}
 body {
   background-image: url("/src/assets/Rick-_-Morty-The-Lab-_online-video-cutter.com_.gif");
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "Poppins";
+ 
   
 }
 
