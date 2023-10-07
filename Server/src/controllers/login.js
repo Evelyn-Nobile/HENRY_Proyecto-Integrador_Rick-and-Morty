@@ -1,21 +1,16 @@
-// Dentro de tu carpeta controllers crea un archivo llamado login.js. Dentro de este deberás crear y exportar una función que recibirá por parámetro a los objetos req y res.
+const { User } = require("../DB_connection.js");
 
-// Deberás obtener los datos email y password que recibes mediante Query. Una vez hecho esto, importa tu arreglo de usuarios y verifica si dentro de ese arreglo hay un usuario que coincida tanto su email y su contraseña con los que recibes por Query.
+module.exports = async (req, res) => {
+    try {
+        const { email, password } = req.query;
+        if (!email || !password) return res.status(400).send("Faltan datos");
 
-// En el caso de que haya un usuario que cumpla esa condición, entonces debes devolver una respuesta con status 200, y, en formato JSON, un objeto con una propiedad access: true. Caso contrario devuelve lo mismo pero con la propiedad access: false.
-
-const user = require("../utils/users")
-
-const login = (req, res) => {
-    const {email, password} = req.query
-    if (user.some((user)=> user.email === email && user.password === password)) {
-        return res
-        .json({access: true})
-    } else {
-        return res
-        .status(401)
-        .json({access: true})
+        const user = await User.findOne({ where: { email }});
+        if(!user) return res.status(404).send("Usuario no encontrado");
+        return user.password === password
+            ? res.json({ access: true })
+            : res.status(403).send("Contraseña incorrecta");
+    } catch(error) {
+        return res.status(500).send(error.message);
     }
 }
-
-module.exports = {login}

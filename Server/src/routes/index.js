@@ -1,8 +1,12 @@
-const {login} = require('../controllers/login.js')
-const {getCharById} = require('../controllers/getCharById.js')
-const {postFav, deleteFav} = require('../controllers/handleFavorites')
-const express = require('express')
+const express = require('express');
 const router = express.Router();
+
+const {getCharById} = require('../controllers/getCharById.js')
+const login = require('../controllers/login.js');
+const postUser = require('../controllers/postUser.js');
+const postFav = require('../controllers/postFav.js');
+const deleteFav = require('../controllers/deleteFav.js');
+
 //crear y modularizar rutas
 //Crea una ruta para cada controlador con los siguientes paths:
 
@@ -18,6 +22,8 @@ getCharById(req,res) //Cuando haga una peticion a la ruta se va a ejecutar el co
 })                   //Si no le pongo la funcion la ruta no hace nada
 
 router.get("/login", login);
+
+router.post('/login', postUser);
 
 router.post('/fav', postFav);
 
